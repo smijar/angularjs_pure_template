@@ -4,7 +4,8 @@
 	<!-- angular js-->
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
 	<script src="../angular.min.js"></script>
-    
+	<script src="controllers.js"></script>
+
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,7 +15,6 @@
 	<!--<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">-->
 	<link rel="stylesheet" href="../pure-min.css">
 	<link rel="stylesheet" href="../combo/baby-blue.css">
-
 
 </head>
 <body>
@@ -31,7 +31,6 @@
         <a class="pure-menu-heading" href="../index.html">Company</a>
 
         <ul>
-
             <li class=" ">
                 <a href="../angularjs/index.html">AngularJS trial</a>
             </li>
@@ -51,7 +50,6 @@
             <li class=" ">
                 <a href="../submenu5/index.html">Sub Menu 5</a>
             </li>
-
         </ul>
     </div>
 </div>
@@ -63,7 +61,7 @@
     	<h1 class="pure-u-1">Buttons</h1>
     	<h2 class="pure-u">Simple CSS for Buttons</h2>
 	</div>
-	
+
 	<!-- Content section -->
 	<div class="content">
     	<h2 class="content-subhead">Default Buttons</h2>
@@ -73,9 +71,80 @@
     	<a class="pure-button" href="index.html#">A Pure Button</a>
 		<button class="pure-button">A Pure Button</button>
 
+
+		<!-- table 1-->
+		<h3>Funny Price Table</h3>
+		<table class="pure-table">
+		   <thead>
+		      <tr>
+		         <th>Hours Number</th>
+		         <th>Price (&euro;)</th>
+		         <th>Safe (%)</th>
+		      </tr>
+		   </thead>
+		   <tbody>
+		      <tr class="pure-table-odd">
+		         <td>1</td>
+		         <td>30 &euro;</td>
+		         <td>0%</td>
+		      </tr>
+		      <tr>
+		         <td>5</td>
+		         <td>135 &euro;</td>
+		         <td>10%</td>
+		      </tr>
+		      <tr class="pure-table-odd">
+		         <td>10</td>
+		         <td>255 &euro;</td>
+		         <td>15%</td>
+		      </tr>
+		      <tr>
+		         <td>20</td>
+		         <td>480 &euro;</td>
+		         <td>20%</td>
+		      </tr>
+		      <tr class="pure-table-odd">
+		         <td>50</td>
+		         <td>1050 &euro;</td>
+		         <td>30%</td>
+		      </tr>
+		   </tbody>
+		</table><!--table 1-->
+
+
+		<!-- table 2 - angular list repeat -->
+		<h3>A list of phones using AngularJS</h3>
+		
+        <input ng-model="query" placeholder="Search">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Newest</option>
+        </select>
+
+		<h3>AngularJS Table</h3>
+		<!-- bordered for grid -->
+		<table class="pure-table pure-table-bordered">
+		   <thead>
+			  <tr>
+		         <th>Phone Id</th>
+		         <th>image</th>
+		         <th>Phone Snippet</th>
+		      </tr>
+		   </thead>
+		   <tbody ng-controller="PhoneListCtrl">
+		     <tr ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+				<td><a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a></td>
+				<td><a href="#/phones/{{phone.id}}">{{phone.name}}</a></td>
+				<td>{{phone.snippet}}</td>
+			 </tr>
+		   </tbody>
+		</table><!--table 2-->
+
+
     </div> <!-- content section -->
 </div> <!-- main section -->
-  
+
 </div> <!-- layout -->
 
 
