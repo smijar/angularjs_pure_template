@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<!-- angular js-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
+	<script src="../angular.min.js"></script>
+	<script src="controllers.js"></script>
+    
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Company</title>
+
+	<!-- pure-min css -->
+	<!--<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">-->
+	<link rel="stylesheet" href="../css/angular_example.css">
+	
+	<!--IMPORTANT POINT - KEEP ALL OTHER CSS FILES ABOVE THE PURE-MIN CSS FILES, ELSE THINGS DISAPPEAR -->
+	<link rel="stylesheet" href="../pure-min.css">
+	<link rel="stylesheet" href="../combo/baby-blue.css">
+
+</head>
+<body>
+
+<!-- layout -->
+<div class="pure-g-r " id="layout">
+	<a href="index.html#menu" id="menuLink" class="pure-menu-link">
+		<img src="../img/navicon-png2x.png" width="20" alt="Menu toggle">
+	</a>
+
+
+<!-- START - menu section -->
+<div class="pure-u" id="menu">
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="../index.html">Company</a>
+
+        <ul>
+
+            <li class="pure-menu-selected">
+                <a href="../angularjs/index.html">AngularJS trial</a>
+            </li>
+
+            <li class=" ">
+                <a href="../submenu2/index.html">Sub Menu 2</a>
+            </li>
+
+            <li class=" ">
+                <a href="../submenu3/index.html">Sub Menu 3</a>
+            </li>
+
+            <li class="menu-item-divided">
+                <a href="../submenu4/index.html">Sub Menu 4</a>
+            </li>
+
+            <li class=" ">
+                <a href="../submenu5/index.html">Sub Menu 5</a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+<!-- END - menu-section -->
+
+<!-- main section -->
+<div class="pure-u" id="main">
+	<div class="header pure-u-1">
+    	<h1 class="pure-u-1">Buttons</h1>
+    	<h2 class="pure-u">Simple CSS for Buttons</h2>
+	</div>
+	
+	<!-- Content section -->
+	<div class="content">
+    	<h2 class="content-subhead">Default Buttons</h2>
+    	<p>
+        To create a Pure Button, add the <code>pure-button</code> classname to any <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element.
+    	</p>
+    	<a class="pure-button" href="index.html#">A Pure Button</a>
+		<button class="pure-button">A Pure Button</button>
+
+		<!-- START - angularjs trial 1-->
+		<form class="pure-form">
+		    <fieldset>
+		        <legend>A compact inline form using AngularJS</legend>
+
+		        <input type="email" ng-model="yourEmail" placeholder="Email">
+		        <input type="password" ng-model="yourPassword" placeholder="Password">
+
+		        <label for="remember">
+		            <input id="remember" type="checkbox" ng-model="rememberMe"> Remember me
+		        </label>
+
+		        <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+		    </fieldset>
+		</form>
+		
+		<p>You will see a live update of the values from the above fields here. <br/>
+		You are entering: {{yourEmail}} and password:{{yourPassword}} and rememberMe:{{rememberMe}}</p>
+		<!-- END - angularjs trial 1-->
+
+		<!-- START - angularjs trial 2-->
+		<h3>A list of phones using AngularJS</h3>
+		
+        Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Newest</option>
+        </select>
+
+      </div>
+		
+        <ul class="phones" ng-controller="PhoneListCtrl">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+		<!-- END - angularjs trial 2-->
+
+    </div> <!-- content section -->
+</div> <!-- main section -->
+  
+</div> <!-- layout -->
+
+</body>
+</html>
